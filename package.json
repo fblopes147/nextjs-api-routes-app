@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "next": "latest",
+    "next-images": "^1.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "swr": "0.1.18"

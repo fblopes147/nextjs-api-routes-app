@@ -1,11 +1,50 @@
 .hello {
   list-style: none;
   font: 36px Helvetica, Arial, sans-serif;
-  background: #eee;
+  color: black;
+  background: #ffffff;
   padding: 100px;
   text-align: center;
   transition: 100ms ease-in background;
 }
 .hello:hover {
-  background: #ccc;
+  background: #008cff;
+  color: red;
+}
+.telafundo{
+  background: rgb(0, 255, 255);
+}
+.centralizar{
+  text-align: center;
+}
+.colunaInfo1{
+  width: 400px;
+}
+.colunaInfo2{
+  width: 650px;
+}
+.colunaCiaAereas1{
+  width: 150px;
+}
+.colunaCiaAereas2{
+  width: 450px;
+}
+.labelInfo{
+  font-weight: bold;
+  font-size: large;
+}
+.labelConversor{
+  font-size: medium;
+}
+.colunaAtracao{
+  width: 200px;
+}
+.colunaCidade{
+  width: 175px;
+}
+.colunaEstado{
+  width: 175px;
+}
+.colunaDescricao{
+  width: 700px;
 }
