@@ -5,12 +5,18 @@ import styles from '../../styles.module.css'
 
 export default() => {
     return (
-        <div className={styles.telafundo}>
-            <Geral />
+        <div>
+            <div className={styles.telafundoInfoGerais}>
+                <Geral />
+                <br />
+            </div>
+            <div className={styles.telafundoConversor}>
+                <Conversao />
+            </div>
             <br />
-            <Conversao />
-            <br />
-            <Lugares />
+            <div>
+                <Lugares />
+            </div>
         </div>
     )
 }

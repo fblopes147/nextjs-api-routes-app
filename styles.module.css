@@ -12,7 +12,16 @@
   color: red;
 }
 .telafundo{
-  background: rgb(0, 255, 255);
+  background: rgb(0, 60, 255);
+}
+.telafundoInfoGerais{
+  background: rgb(0, 60, 255);
+}
+.telafundoConversor{
+  background: rgb(255, 0, 0);
+}
+.telaFundoLugares{
+  background: rgb(255, 255, 255);
 }
 .centralizar{
   text-align: center;
