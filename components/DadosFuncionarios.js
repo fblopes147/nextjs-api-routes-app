@@ -6,14 +6,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
-// import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import { render } from 'react-dom';
 
 const listaSexo = [
+    {value: '-', label: '-'},
     {value: 'Feminino', label: 'F'},
     {value: 'Masculino', label: 'M'}
 ]
 
 const listaEstadoCivil = [
+    {value: '-', label: '-'},
     {value: 'Solteiro', label: 'Solteiro'},
     {value: 'Casado', label: 'Casado'},
     {value: 'Viúvo', label: 'Viúvo'},
@@ -21,6 +25,7 @@ const listaEstadoCivil = [
 ]
 
 const listaEstado = [
+    {value: '-', label: '-'},
     {value: 'Acre', label: 'AC'},
     {value: 'Alagoas ', label: 'AL'},
     {value: 'Amapá ', label: 'AP'},
@@ -69,101 +74,247 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-var nomeFuncionario = "";
+// var nomeFuncionario = "";
+var itemSexo = "";
 
 const SalvarDados = () => {
+    itemSexo = document.querySelector("[id='txtSexo']").value;
+    alert(itemSexo);
     // Acessar API de salvar dados no Banco
     alert("Os dados foram salvos com sucesso!");
 }
 
-export default class InserirNovoFuncionario extends React.Component{
-    render(){
-        // const classes = useStyles();
-        // const [sexo, setSexo] = React.useState('F');
-        
-        // const handleChangeSexo = (event) => {
-        //     setSexo(event.target.value);
-        //   };
+export default function InserirNovoFuncionario() {
+    const [sexo, setSexo] = React.useState('-');
+    const [estadoCivil, setEstadoCivil] = React.useState('-');
+    const [estado, setEstado] = React.useState('-');
+    
+    const handleChangeSexo = event => {
+        document.querySelector("[id='txtSexo']").value = event.target.value;
+        setSexo(event.target.value);
+    };
 
-        return(
-            <div>
-                <a style={{fontSize:"30px", fontWeight:"bold"}} >ADICIONAR NOVO FUNCIONÁRIO</a>
-                <p/>
-                <div>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        startIcon={<SaveIcon />}
-                        onClick={SalvarDados}
-                        style={{marginRight:"20px"}}
-                    >
-                        Salvar
-                    </Button>
+    const handleChangeEstadoCivil = event => {
+        document.querySelector("[id='txtEstadoCivil']").value = event.target.value;
+        setEstadoCivil(event.target.value);
+    };
 
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        startIcon={<BackIcon />}
-                        href="principal"
-                    >
-                        Voltar
-                    </Button>
-                </div>
-                <p />
+    const handleChangeEstado = event => {
+        document.querySelector("[id='txtEstado']").value = event.target.value;
+        setEstado(event.target.value);
+    };
 
-                {/* <TextField
-                    id="txtNomeFuncionario"
-                    label="Nome do Funcionário"
-                    style={{ margin: 8, width:"300px", marginRight:"10px"}}
-                    margin="normal"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    variant="outlined"
-                    size="small"
-                />
-                <TextField
-                    id="txtProntuario"
-                    label="Prontuário"
-                    style={{ margin: 8, width:"185px", marginRight:"10px"}}
-                    margin="normal"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    variant="outlined"
-                    size="small"
-                />
-                <TextField
-                    id="txtDtNascimento"
-                    label="Data de Nascimento"
-                    style={{ margin: 8, width:"180px", marginRight:"10px"}}
-                    type="date"
-                    format="dd/MM/yyyy"
-                    margin="normal"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    variant="outlined"
-                    size="small"
-                />
-
-                <TextField
-                    id="txtSexo"
-                    label="Sexo"
-                    style={{ margin: 8, width:"180px", marginRight:"10px"}}
-                    size="small"
-                    value={sexo}
-                    onChange={handleChangeSexo}
-                >
-                    {listaSexo.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                        </MenuItem>
-                    ))}
-                </TextField> */}
-                <table>
+    return(
+        <div>
+            <a style={{fontSize:"30px", fontWeight:"bold"}} >ADICIONAR NOVO FUNCIONÁRIO</a>
+            <p/>
+            <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<SaveIcon />}
+                onClick={SalvarDados}
+                style={{marginRight:"20px"}}
+            >
+                Salvar
+            </Button>
+            <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<BackIcon />}
+                href="principal"
+            >
+                Voltar
+            </Button>
+            <br />
+            <br />
+            <br />
+            <TextField
+                id="txtNomeFuncionario"
+                label="Nome do Funcionário"
+                style={{ margin: 8, width:"300px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtProntuario"
+                label="Prontuário"
+                style={{ margin: 8, width:"185px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtDtNascimento"
+                label="Data de Nascimento"
+                style={{ margin: 8, width:"180px", marginRight:"10px"}}
+                type="date"
+                format="dd/MM/yyyy"
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtSexo"
+                select
+                label="Sexo"
+                style={{ margin: 8, width:"100px", marginRight:"10px"}}
+                size="small"
+                value={sexo}
+                onChange={handleChangeSexo}
+                variant="outlined"
+            >
+                {listaSexo.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                    </MenuItem>
+                ))}
+            </TextField>
+            <TextField
+                id="txtEstadoCivil"
+                select
+                label="Estado Civil"
+                style={{ margin: 8, width:"150px", marginRight:"10px"}}
+                size="small"
+                value={estadoCivil}
+                onChange={handleChangeEstadoCivil}
+                variant="outlined"
+            >
+                {listaEstadoCivil.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                    </MenuItem>
+                ))}
+            </TextField>
+            <p />
+            <TextField
+                id="txtTelFuncionario"
+                label="Telefone"
+                style={{ margin: 8, width:"160px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtCargo"
+                label="Cargo"
+                style={{ margin: 8, width:"130px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtArea"
+                label="Área"
+                style={{ margin: 8, width:"90px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtGestor"
+                label="Gestor"
+                style={{ margin: 8, width:"300px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtTelGestor"
+                label="Telefone Gestor"
+                style={{ margin: 8, width:"160px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <p />
+            <TextField
+                id="txtCEP"
+                label="CEP"
+                style={{ margin: 8, width:"75px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtEndereco"
+                label="Endereço"
+                style={{ margin: 8, width:"300px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtBairro"
+                label="Bairro"
+                style={{ margin: 8, width:"200px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtCidade"
+                label="Cidade"
+                style={{ margin: 8, width:"200px", marginRight:"10px"}}
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                variant="outlined"
+                size="small"
+            />
+            <TextField
+                id="txtEstado"
+                select
+                label="Estado"
+                style={{ margin: 8, width:"80px", marginRight:"10px"}}
+                size="small"
+                value={estado}
+                onChange={handleChangeEstado}
+                variant="outlined"
+            >
+                {listaEstado.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                    </MenuItem>
+                ))}
+            </TextField>
+                {/* <table>
                     <tr style={{height:"60px"}}>
                         <td width="150"><label>Nome do Funcionário</label></td>
                         <td width="315">
@@ -234,8 +385,7 @@ export default class InserirNovoFuncionario extends React.Component{
                             <input type="text" name="txtTelGestor" style={{width:"105px", height:"20px"}} />
                         </td>
                     </tr>
-                </table>
+                </table> */}
             </div>
         )
-    }
 }
