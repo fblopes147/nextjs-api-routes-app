@@ -12,18 +12,29 @@ export default function Index() {
   if (!data) return <div>Loading...</div>
 
   return (
-    // <ul>
-    //     {data.map((p,i) => (<Person key={i} person={p} />))}
-    // </ul>
     <div>
-      <li className={styles.hello}> 
+      {/* <li className={styles.mapeamento}>
+        <a title="MapeamentoInfo">MAPEAMENTO DE INFORMAÇÕES</a>
+      </li>
+      
+      <label className={styles.labelInfo}>NOME</label>
+      <br />
+      <input type="text" name="teste" /> */}
+
+      <li className={styles.mapeamento}>
+        <Link href="MapeamentoFuncionarios/principal">
+          <a>MAPEAMENTO DE FUNCIONÁRIOS</a>
+        </Link>
+      </li>
+
+      {/* <li className={styles.hello}> 
         <Link href="GuiaEUA/guia">
           <a title="GuiaInfo">GUIA DE VIAGENS - INFORMAÇÕES EUA</a>
         </Link>
-      </li>
-      <ul>
+      </li> */}
+      {/* <ul>
         {data.map((p,i) => (<Person key={i} person={p} />))}
-      </ul>
+      </ul> */}
     </div>
   )
 }
