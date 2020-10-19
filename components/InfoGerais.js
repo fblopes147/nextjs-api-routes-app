@@ -15,9 +15,13 @@ export default () => {
                     <td className={styles.colunaInfo2}>Dólar Americano</td>
                 </tr>
                 <tr>
-                    <td className={styles.centralizar, styles.colunaInfo1}>Companhias Aéreas (Vôos Diretos partindo de SP)</td>
+                    <td className={styles.centralizar, styles.colunaInfo1}>Informações Aéreas</td>
                     <td className={styles.colunaInfo2}>
                         <table border="1" align="center" bgcolor="#CCC">
+                            <tr>
+                                <th className={styles.colunaCiaAereas1}>Cias. Aéreas</th>
+                                <th className={styles.colunaCiaAereas2}>Destinos (Vôos Partindo de SP/Guarulhos)</th>
+                            </tr>
                             <tr>
                                 <td className={styles.colunaCiaAereas1}>Delta</td>
                                 <td className={styles.colunaCiaAereas2}>Atlanta, New York</td>
